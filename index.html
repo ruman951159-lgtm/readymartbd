@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadymartBD - অনলাইন শপিং বাংলাদেশ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
+        }
+        
+        .hero-slider {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .flash-sale {
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+        }
+        
+        .navbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+        }
+        
+        .banner-text {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .discount-badge {
+            background: #ff4757;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-orange-500 text-white text-sm py-2">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <span>📞 হটলাইন: ১৬২৬৩</span>
+                <span>🚚 ফ্রি ডেলিভারি ৫০০ টাকার উপরে</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:underline">বিক্রেতা হন</a>
+                <a href="#" class="hover:underline">সাহায্য</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="bg-white shadow-md navbar-sticky">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-orange-500">ReadymartBD</h1>
+                    <span class="text-xs text-gray-500 ml-2">বাংলাদেশ</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-1 mx-8 max-w-2xl">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="আপনি কি খুঁজছেন?" 
+                               class="w-full py-3 px-4 border border-gray-300 rounded-l-md focus:outline-none focus:border-orange-500">
+                        <button class="bg-orange-500 text-white px-6 py-3 rounded-r-md hover:bg-orange-600 transition-colors">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-6">
+                    <div class="hidden md:flex items-center space-x-4">
+                        <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-user mr-2"></i>
+                            লগইন
+                        </a>
+                        <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-user-plus mr-2"></i>
+                            সাইন আপ
+                        </a>
+                    </div>
+                    <div class="relative">
+                        <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                        </a>
+                    </div>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <div class="bg-orange-500 desktop-nav">
+            <div class="container mx-auto px-4">
+                <nav class="flex space-x-8 py-3">
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-mobile-alt mr-2"></i>
+                        মোবাইল ও ট্যাবলেট
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-laptop mr-2"></i>
+                        কম্পিউটার ও ল্যাপটপ
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-tshirt mr-2"></i>
+                        ফ্যাশন
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-home mr-2"></i>
+                        ঘর ও জীবনযাত্রা
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-heartbeat mr-2"></i>
+                        স্বাস্থ্য ও সৌন্দর্য
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 flex items-center">
+                        <i class="fas fa-gamepad mr-2"></i>
+                        খেলাধুলা
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-slider py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-white">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 banner-text">ReadymartBD তে স্বাগতম</h2>
+                <p class="text-xl mb-8 banner-text">বাংলাদেশের সবচেয়ে বড় অনলাইন শপিং মল</p>
+                <div class="flex justify-center space-x-4">
+                    <button class="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        এখনই কিনুন
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-500 transition-colors">
+                        আরো জানুন
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale -->
+    <section class="flash-sale py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between text-white">
+                <div class="flex items-center">
+                    <i class="fas fa-bolt text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-bold">ফ্ল্যাশ সেল</h3>
+                    <div class="ml-6 flex items-center space-x-2">
+                        <span>শেষ হবে:</span>
+                        <div class="bg-white text-red-500 px-2 py-1 rounded font-bold">02</div>
+                        <span>:</span>
+                        <div class="bg-white text-red-500 px-2 py-1 rounded font-bold">45</div>
+                        <span>:</span>
+                        <div class="bg-white text-red-500 px-2 py-1 rounded font-bold">30</div>
+                    </div>
+                </div>
+                <a href="#" class="text-white hover:underline">সব দেখুন →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">ক্যাটাগরি অনুযায়ী কিনুন</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-mobile-alt text-2xl text-blue-500"></i>
+                    </div>
+                    <p class="font-medium">মোবাইল</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-laptop text-2xl text-green-500"></i>
+                    </div>
+                    <p class="font-medium">ল্যাপটপ</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-tshirt text-2xl text-pink-500"></i>
+                    </div>
+                    <p class="font-medium">ফ্যাশন</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-home text-2xl text-purple-500"></i>
+                    </div>
+                    <p class="font-medium">ঘর সাজানো</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-heartbeat text-2xl text-red-500"></i>
+                    </div>
+                    <p class="font-medium">স্বাস্থ্য</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-gamepad text-2xl text-yellow-500"></i>
+                    </div>
+                    <p class="font-medium">গেমিং</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-book text-2xl text-indigo-500"></i>
+                    </div>
+                    <p class="font-medium">বই</p>
+                </div>
+                <div class="category-card text-center p-4 rounded-lg hover:shadow-lg cursor-pointer">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-ellipsis-h text-2xl text-gray-500"></i>
+                    </div>
+                    <p class="font-medium">আরো</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">ফিচার্ড প্রোডাক্ট</h2>
+                <a href="#" class="text-orange-500 hover:underline">সব দেখুন →</a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="স্মার্টফোন" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-২৫%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">স্যামসাং গ্যালাক্সি A54</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳২৫,৯৯০</span>
+                            <span class="price-original text-sm">৳৩৪,৯৯০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(১২৩)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="ল্যাপটপ" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-১৫%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">HP Pavilion 15</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳৫৫,০০০</span>
+                            <span class="price-original text-sm">৳৬৫,০০০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">(৮৭)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="টি-শার্ট" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-৩০%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">পুরুষদের টি-শার্ট</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳৪৯০</span>
+                            <span class="price-original text-sm">৳৭০০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(২৫৬)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/3945667/pexels-photo-3945667.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="হেডফোন" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-২০%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">ওয়্যারলেস হেডফোন</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳২,৪০০</span>
+                            <span class="price-original text-sm">৳৩,০০০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-500 ml-1">(৪৫)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="জুতা" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-৪০%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">স্পোর্টস জুতা</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳১,৮০০</span>
+                            <span class="price-original text-sm">৳৩,০০০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(৯৮)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1667088/pexels-photo-1667088.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                             alt="ব্যাগ" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 discount-badge">-৩৫%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-sm mb-2">ল্যাপটপ ব্যাগ</h3>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-orange-500 font-bold">৳১,৩০০</span>
+                            <span class="price-original text-sm">৳২,০০০</span>
+                        </div>
+                        <div class="flex items-center text-yellow-400 text-sm mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-500 ml-1">(৬৭)</span>
+                        </div>
+                        <button class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition-colors">
+                            কার্টে যোগ করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shipping-fast text-2xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">দ্রুত ডেলিভারি</h3>
+                    <p class="text-gray-600">সারা বাংলাদেশে দ্রুত ও নিরাপদ ডেলিভারি</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">নিরাপদ পেমেন্ট</h3>
+                    <p class="text-gray-600">১০০% নিরাপদ ও সুরক্ষিত পেমেন্ট সিস্টেম</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo text-2xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">সহজ রিটার্ন</h3>
+                    <p class="text-gray-600">৭ দিনের মধ্যে সহজ রিটার্ন পলিসি</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ReadymartBD</h3>
+                    <p class="text-gray-300 mb-4">বাংলাদেশের সবচেয়ে বিশ্বস্ত অনলাইন শপিং প্ল্যাটফর্ম</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">কাস্টমার সার্ভিস</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">সাহায্য কেন্দ্র</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">কিভাবে কিনবেন</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">রিটার্ন ও রিফান্ড</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">যোগাযোগ করুন</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">ReadymartBD সম্পর্কে</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">ক্যারিয়ার</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">প্রেস</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">বিনিয়োগকারী</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">পেমেন্ট মেথড</h4>
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <div class="bg-white p-2 rounded">
+                            <img src="https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Visa" class="w-full h-6 object-contain">
+                        </div>
+                        <div class="bg-white p-2 rounded">
+                            <img src="https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Mastercard" class="w-full h-6 object-contain">
+                        </div>
+                        <div class="bg-white p-2 rounded">
+                            <img src="https://images.pexels.com/photos/164501/pexels-photo-164501.jpeg?auto=compress&cs=tinysrgb&w=50" alt="bKash" class="w-full h-6 object-contain">
+                        </div>
+                    </div>
+                    <h4 class="font-semibold mb-2">মোবাইল অ্যাপ</h4>
+                    <div class="flex space-x-2">
+                        <a href="#" class="bg-gray-700 px-3 py-2 rounded text-sm">
+                            <i class="fab fa-google-play mr-1"></i>
+                            Play Store
+                        </a>
+                        <a href="#" class="bg-gray-700 px-3 py-2 rounded text-sm">
+                            <i class="fab fa-apple mr-1"></i>
+                            App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">© ২০২৪ ReadymartBD. সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Flash Sale Countdown
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (2 * 60 * 60 * 1000) + (45 * 60 * 1000) + (30 * 1000); // 2:45:30 from now
+            
+            setInterval(() => {
+                const currentTime = new Date().getTime();
+                const timeLeft = endTime - currentTime;
+                
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.querySelectorAll('.flash-sale .bg-white')[0].textContent = hours.toString().padStart(2, '0');
+                document.querySelectorAll('.flash-sale .bg-white')[1].textContent = minutes.toString().padStart(2, '0');
+                document.querySelectorAll('.flash-sale .bg-white')[2].textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+        
+        updateCountdown();
+        
+        // Add to cart functionality
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.parentElement.querySelector('h3').textContent;
+                alert(`"${productName}" কার্টে যোগ করা হয়েছে!`);
+                
+                // Update cart count
+                const cartCount = document.querySelector('.fa-shopping-cart + span');
+                const currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+            });
+        });
+        
+        // Search functionality
+        document.querySelector('.fa-search').parentElement.addEventListener('click', function() {
+            const searchTerm = document.querySelector('input[placeholder="আপনি কি খুঁজছেন?"]').value;
+            if (searchTerm.trim()) {
+                alert(`"${searchTerm}" এর জন্য খোঁজা হচ্ছে...`);
+            } else {
+                alert('অনুগ্রহ করে কিছু লিখুন');
+            }
+        });
+        
+        // Mobile menu toggle (placeholder)
+        document.querySelector('.fa-bars').addEventListener('click', function() {
+            alert('মোবাইল মেনু শীঘ্রই আসছে!');
+        });
+    </script>
+</body>
+</html>
